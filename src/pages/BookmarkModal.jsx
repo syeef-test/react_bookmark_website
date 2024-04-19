@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import ReactDOM from "react-dom";
+import BookmarkContext from "../store/bookmark-context";
 
 const BookmarkModal = ({ isOpen, onClose, bookmark }) => {
   const [formData, setFormData] = useState({
     title: bookmark ? bookmark.title : "",
     url: bookmark ? bookmark.url : "",
   });
+
+  const bookmarkContext = useContext(BookmarkContext);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -19,6 +22,12 @@ const BookmarkModal = ({ isOpen, onClose, bookmark }) => {
     e.preventDefault();
 
     console.log("Form submitted:", formData);
+    if (bookmark) {
+      bookmarkContext.editBookmark(formData);
+    } else {
+      bookmarkContext.addBookmark(formData);
+    }
+
     onClose();
   };
   if (!isOpen) return null;
