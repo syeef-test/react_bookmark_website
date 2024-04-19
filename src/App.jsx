@@ -26,7 +26,7 @@ function App() {
       <h3>Bookmark Website</h3>
       <button onClick={() => openModal(null)}>Add Bookmark</button>
 
-      <Modal isOpen={openModal} onClose={closeModal} />
+      <Modal isOpen={modalOpen} onClose={closeModal} />
     </>
   );
 }
