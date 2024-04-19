@@ -41,7 +41,7 @@ function App() {
           <button onClick={() => handleDelete(item)}>Delete</button>
         </div>
       ))}
-      <Modal isOpen={modalOpen} onClose={closeModal} />
+      <Modal isOpen={modalOpen} onClose={closeModal} bookmark={bookmark} />
     </>
   );
 }

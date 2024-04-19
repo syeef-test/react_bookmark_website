@@ -63,8 +63,18 @@ export const BookmarkContextProvider = (props) => {
 
   const editBookmarkHandler = async (bookmark) => {
     try {
-      alert("edit");
-      console.log(bookmark);
+      //alert("edit");
+      //console.log(bookmark);
+      const _id = bookmark._id;
+      const obj = {
+        title: bookmark.title,
+        url: bookmark.url,
+      };
+      const response = await axios.put(`${URL}/bookmark/${_id}`, obj);
+      if (response) {
+        alert("Bookmark Updated Succesfully");
+        fetchBookmark();
+      }
     } catch (error) {
       console.log(error);
     }
