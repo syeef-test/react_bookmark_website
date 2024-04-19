@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import "./App.css";
-import Modal from "./pages/Modal";
+import Modal from "./pages/BookmarkModal";
 
 function App() {
   const [modalOpen, setModalOpen] = useState(false);
